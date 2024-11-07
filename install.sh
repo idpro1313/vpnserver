@@ -103,11 +103,11 @@ cat <<EOF > vpn.yml
       net.ipv4.conf.all.rp_filter=0
       net.ipv4.ip_forward=1
       net.ipv4.conf.all.forwarding=1
-  notify: Reload sysctl
-
+    notify: Reload sysctl
+    
 handlers:
   - name: Reload sysctl
-    become: true
+      become: true
     command: sysctl -p /etc/sysctl.conf
 EOF
 
