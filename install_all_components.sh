@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Update package lists and install Ansible
+echo ""
+echo "Checking to see updates"
 sudo apt update
+echo "install software-properties-common"
 sudo apt install -y software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt update
