@@ -72,11 +72,13 @@ cat <<EOF > docker.yml
       become: true
       docker_container:
         name: portainer
-        image: portainer/portainer
-        state: started
+        image: portainer/portainer-ce
+        state: latest
+        pull: true
         restart_policy: always
         ports:
-          - "9000:9000"
+          - "8000:8000"
+          - "9443:9443"
 EOF
 
 # Create vpn playbook
