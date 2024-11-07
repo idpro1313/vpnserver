@@ -10,7 +10,7 @@ echo "Install Ansible"
 sudo apt-add-repository --yes --update ppa:ansible/ansible;
 sudo apt update;
 sudo apt install -y ansible;
-# Create and run Playbooks to install components
+echo "Create and run Playbooks to install components"
 cat <<EOF > base.yml;
 ---
 - name: Setup base components
