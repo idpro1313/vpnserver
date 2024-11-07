@@ -2,16 +2,16 @@
 # Update package lists and install Ansible
 echo "-------START----------"
 echo "Checking to see updates"
-sudo apt update
+sudo apt update;
 echo "install software-properties-common"
-sudo apt install -y software-properties-common
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt update
-sudo apt install -y ansible
+sudo apt install -y software-properties-common;
+sudo apt-add-repository --yes --update ppa:ansible/ansible;
+sudo apt update;
+sudo apt install -y ansible;
 
 # Update/upgrade the system
-sudo apt update
-sudo apt upgrade -y
+sudo apt update;
+sudo apt upgrade -y;
 
 # Create and run Playbooks to install components
 cat <<EOF > base.yml
