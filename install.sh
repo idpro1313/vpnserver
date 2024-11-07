@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # Update package lists and install Ansible
 echo ""
 echo "Checking to see updates"
