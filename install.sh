@@ -73,7 +73,7 @@ cat <<EOF > docker.yml
       docker_container:
         name: portainer
         image: portainer/portainer-ce
-        state: latest
+        state: started
         pull: true
         restart_policy: always
         ports:
