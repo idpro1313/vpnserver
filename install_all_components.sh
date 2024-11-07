@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# Установка Ansible
+# Update package lists and install Ansible
+sudo apt update
+sudo apt install -y software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt update
 sudo apt install -y ansible
 
-# Проверка и установка обновлений для Ubuntu
+# Update/upgrade the system
 sudo apt update
 sudo apt upgrade -y
 
-# Создание и запуск Playbooks для установки компонентов
+# Create and run Playbooks to install components
 cat <<EOF > base.yml
 ---
 - name: Setup base components
@@ -64,7 +67,7 @@ cat <<EOF > vpn.yml
         - wireguard-tools
 EOF
 
-# Запуск Playbooks с помощью Ansible
+# Run Playbooks using Ansible
 ansible-playbook base.yml
 ansible-playbook docker.yml
 ansible-playbook vpn.yml
