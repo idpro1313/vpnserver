@@ -3,18 +3,15 @@
 echo "-------START----------"
 echo "Checking to see updates"
 sudo apt update;
-echo "install software-properties-common"
+sudo apt upgrade -y;
+echo "Install software-properties-common"
 sudo apt install -y software-properties-common;
+echo "Install Ansible"
 sudo apt-add-repository --yes --update ppa:ansible/ansible;
 sudo apt update;
 sudo apt install -y ansible;
-
-# Update/upgrade the system
-sudo apt update;
-sudo apt upgrade -y;
-
 # Create and run Playbooks to install components
-cat <<EOF > base.yml
+cat <<EOF > base.yml;
 ---
 - name: Setup base components
   hosts: localhost
@@ -31,9 +28,8 @@ cat <<EOF > base.yml
         - git
         - cron
         - curl
-EOF
-
-cat <<EOF > docker.yml
+EOF;
+cat <<EOF > docker.yml;
 ---
 - name: Setup Docker components
   hosts: localhost
@@ -53,9 +49,8 @@ cat <<EOF > docker.yml
         restart_policy: unless-stopped
         ports:
           - "9000:9000"
-EOF
-
-cat <<EOF > vpn.yml
+EOF;
+cat <<EOF > vpn.yml;
 ---
 - name: Setup Wireguard VPN
   hosts: localhost
@@ -67,9 +62,8 @@ cat <<EOF > vpn.yml
       with_items:
         - wireguard
         - wireguard-tools
-EOF
-
+EOF;
 # Run Playbooks using Ansible
-ansible-playbook base.yml
-ansible-playbook docker.yml
-ansible-playbook vpn.yml
+ansible-playbook base.yml;
+ansible-playbook docker.yml;
+ansible-playbook vpn.yml;
