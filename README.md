@@ -4,4 +4,3 @@
 3. git clone https://github.com/idpro1313/vpnserver.git
 4. cd vpnserver
 5. sudo sh install_all_components.sh
-6. 
