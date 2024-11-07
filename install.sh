@@ -95,20 +95,21 @@ cat <<EOF > vpn.yml
         - wireguard
         - resolvconf
         - iptables-persistent
-- name: Configure kernel parameters
-  become: true
-  blockinfile:
-    path: /etc/sysctl.conf
-    block: |
-      net.ipv4.conf.all.rp_filter=0
-      net.ipv4.ip_forward=1
-      net.ipv4.conf.all.forwarding=1
-    notify: Reload sysctl
-    
-handlers:
-  - name: Reload sysctl
+
+    - name: Configure kernel parameters
       become: true
-    command: sysctl -p /etc/sysctl.conf
+      blockinfile:
+        path: /etc/sysctl.conf
+        block: |
+          net.ipv4.conf.all.rp_filter=0
+          net.ipv4.ip_forward=1
+          net.ipv4.conf.all.forwarding=1
+      notify: Reload sysctl
+
+  handlers:
+    - name: Reload sysctl
+      become: true
+      command: sysctl -p /etc/sysctl.conf
 EOF
 
 echo "Run Ansible playbooks"
