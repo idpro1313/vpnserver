@@ -1,6 +1,6 @@
 #!/bin/bash
 # Update package lists and install Ansible
-echo ""
+echo "-------START----------"
 echo "Checking to see updates"
 sudo apt update
 echo "install software-properties-common"
