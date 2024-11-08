@@ -5,4 +5,5 @@
 7. ```cd vpnserver```
 8. ```sudo sh install.sh```
 9. Portainer будет досутпен по адресу `https://your_server_addr:9443/`
-10. Дашбоард для управления Wireguard будет доступен по адресу `http://your_server_addr:10086/` 
+10. Панель управления Wireguard будет доступен по адресу `http://your_server_addr:10086/`
+11. В Панели управления в разделе "Settings" - "Peers Settings" изменить адрес "Peer Remote Endpoint" на IP адрес вашего сервера.
