@@ -13,9 +13,9 @@
 
     Если не успели в течении 5 минут и получили сообщение "the Portainer instance timed out for security purposes...", выполните команды в консоли:
 
-        ```sudo docker stop portainer```
+        sudo docker stop portainer
 
-        ```docker start portainer```
+        sudo docker start portainer
 
 2. Панель управления Wireguard будет доступна по адресу `http://your_server_addr:10086/`
 
