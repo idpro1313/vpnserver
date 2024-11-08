@@ -1,15 +1,23 @@
 #!/bin/bash
-
+echo " "
 echo "Update and upgrade OS"
+echo " "
+
 sudo apt update
 sudo apt upgrade -y
 
+echo " "
 echo "Install Ansible"
+echo " "
+
 sudo apt install software-properties-common -y
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 
+echo " "
 echo "Create base playbook"
+echo " "
+
 cat <<EOF > base.yml
 - name: Install base components
   hosts: localhost
@@ -28,7 +36,10 @@ cat <<EOF > base.yml
         - curl
 EOF
 
+echo " "
 echo "Create docker playbook"
+echo " "
+
 cat <<EOF > docker.yml
 - name: Install Docker, Docker-compose, and Portainer
   hosts: localhost
@@ -81,7 +92,10 @@ cat <<EOF > docker.yml
           - portainer_data:/data
 EOF
 
+echo " "
 echo "Create vpn playbook"
+echo " "
+
 cat <<EOF > vpn.yml
 - name: Install Wireguard and necessary components
   hosts: localhost
@@ -132,7 +146,10 @@ cat <<EOF > vpn.yml
       command: sysctl -p /etc/sysctl.conf
 EOF
 
+echo " "
 echo "Run Ansible playbooks"
-ansible-playbook -vv base.yml
-ansible-playbook -vv docker.yml
-ansible-playbook -vv vpn.yml
+echo " "
+
+ansible-playbook -v base.yml
+ansible-playbook -v docker.yml
+ansible-playbook -v vpn.yml
