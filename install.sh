@@ -22,7 +22,7 @@ cat <<EOF > base.yml
 - name: Install base components
   hosts: localhost
   tasks:
-    - name: Ensure net-tools, mc, nano, htop, git, cron, curl are installed
+    - name: Ensure net-tools, mc, nano, htop, cron, curl are installed
       become: true
       apt:
         name: "{{ item }}"
