@@ -133,6 +133,6 @@ cat <<EOF > vpn.yml
 EOF
 
 echo "Run Ansible playbooks"
-ansible-playbook base.yml
-ansible-playbook docker.yml
-ansible-playbook vpn.yml
+ansible-playbook -vv base.yml
+ansible-playbook -vv docker.yml
+ansible-playbook -vv vpn.yml
