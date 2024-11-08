@@ -5,4 +5,4 @@
 7. ```cd vpnserver```
 8. ```sudo sh install.sh```
 9. Portainer будет досутпен по адресу https://your_server_addr:9443/
-10. Дашбоард Wireguard будет доступно по адресу https://your_server_addr:10086/
+10. Дашбоард для управления Wireguard будет доступен по адресу https://your_server_addr:10086/
