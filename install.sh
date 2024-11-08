@@ -107,7 +107,7 @@ cat <<EOF > vpn.yml
         state: latest
       with_items:
         - wireguard
-        - resolvconf
+#        - resolvconf
         - iptables-persistent
 
     - name: Configure kernel parameters
