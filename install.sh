@@ -106,43 +106,25 @@ cat <<EOF > vpn.yml
           net.ipv4.conf.all.forwarding=1
       notify: Reload sysctl
 
-    - name: Install WireGuard Dashboard Container
-      hosts: your_host
-      tasks:
-        - name: Pull the required Docker image
-          docker_image:
-            name: donaldzou/wgdashboard
-            tag: latest
-
-        - name: Create the WireGuard Dashboard container
-          docker_container:
-            name: wgdashboard
-            image: donaldzou/wgdashboard:latest
-            state: started
-            restart_policy: unless-stopped
-            env:
-              enable: wg0
-              isolate: wg0
-            ports:
-              - "10086:10086"
-              - "51820:51820/udp"
-            cap_add:
-              - NET_ADMIN
-
-    - name: Install WGDashboard
+    - name: Create the WireGuard Dashboard container
       become: true
       docker_container:
         name: wgdashboard
         image: donaldzou/wgdashboard
         state: started
         pull: true
-        restart_policy: always
-        ports:
-          - "8000:8000"
-          - "9443:9443"
+        restart_policy: unless-stopped
+        env:
+          enable: wg0
+          isolate: wg0
         volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - portainer_data:/data
+          - /etc/wireguard:/etc/wireguard
+          - data:/data
+        ports:
+          - "10086:10086"
+          - "51820:51820/udp"
+        capabilities:
+          - NET_ADMIN
 
   handlers:
     - name: Reload sysctl
