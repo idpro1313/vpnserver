@@ -33,7 +33,7 @@ cat <<EOF > base.yml
         - nano
         - htop
         - cron
-        - curl
+#        - curl
 EOF
 
 echo " "
@@ -51,9 +51,9 @@ cat <<EOF > docker.yml
         state: latest
       with_items:
         - apt-transport-https
-        - ca-certificates
-        - gnupg
-        - lsb-release
+#        - ca-certificates
+#        - gnupg
+#        - lsb-release
 
     - name: Add Docker GPG key
       become: true
@@ -72,9 +72,9 @@ cat <<EOF > docker.yml
         name: docker-ce
         state: latest
 
-    - name: Install Docker Compose
-      become: true
-      shell: sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+#    - name: Install Docker Compose
+#      become: true
+#      shell: sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 
     - name: Install Portainer
       become: true
@@ -150,6 +150,6 @@ echo " "
 echo "Run Ansible playbooks"
 echo " "
 
-ansible-playbook -v base.yml
-ansible-playbook -v docker.yml
-ansible-playbook -v vpn.yml
+ansible-playbook  base.yml
+ansible-playbook  docker.yml
+ansible-playbook  vpn.yml
