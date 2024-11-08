@@ -1,10 +1,11 @@
-# Скрипт для чистой Ubuntu Server
+# Сервер VPN на Wireguard + WGDashboard
+## Скрипт для чистой Ubuntu Server
 1. Зайти на новый/свежеустановленный сервер
 2. ```sudo apt install git -y```
 3. ```git clone https://github.com/idpro1313/vpnserver.git```
 4. ```sudo sh ./vpnserver/install.sh```
 
-#   После завершения установки всех компонентов:
+##  После завершения установки всех компонентов:
    
 1. Portainer будет доступен по адресу `https://your_server_addr:9443/`
 
