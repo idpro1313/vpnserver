@@ -20,7 +20,7 @@ echo " "
 
 cat <<EOF > base.yml
 - name: Install base components
-  hosts: all
+  hosts: "localhost"
   tasks:
     - name: Ensure net-tools, mc, nano, htop, cron, curl are installed
       become: true
@@ -42,7 +42,7 @@ echo " "
 
 cat <<EOF > docker.yml
 - name: Install Docker, Docker-compose, and Portainer
-  hosts: all
+  hosts: "localhost"
   tasks:
     - name: Install Docker dependencies
       become: true
@@ -98,7 +98,7 @@ echo " "
 
 cat <<EOF > vpn.yml
 - name: Install Wireguard and necessary components
-  hosts: all
+  hosts: "localhost"
   tasks:
     - name: Install Wireguard and necessary packages
       become: true
