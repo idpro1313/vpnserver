@@ -21,7 +21,7 @@ cat <<EOF > base.yml
 - name: Install base components
   hosts: "localhost"
   tasks:
-    - name: Ensure net-tools, mc, nano, htop, cron, curl are installed
+    - name: Ensure net-tools, mc, nano, htop, cron are installed
       become: true
       apt:
         name: "{{ item }}"
@@ -32,7 +32,6 @@ cat <<EOF > base.yml
         - nano
         - htop
         - cron
-#        - curl
 EOF
 
 echo " "
@@ -50,9 +49,6 @@ cat <<EOF > docker.yml
         state: latest
       with_items:
         - apt-transport-https
-#        - ca-certificates
-#        - gnupg
-#        - lsb-release
 
     - name: Add Docker GPG key
       become: true
@@ -70,10 +66,6 @@ cat <<EOF > docker.yml
       apt:
         name: docker-ce
         state: latest
-
-#    - name: Install Docker Compose
-#      become: true
-#      shell: sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 
     - name: Install Portainer
       become: true
@@ -99,16 +91,6 @@ cat <<EOF > vpn.yml
 - name: Install Wireguard and necessary components
   hosts: "localhost"
   tasks:
-#    - name: Install Wireguard and necessary packages
-#      become: true
-#      apt:
-#        name: "{{ item }}"
-#        state: latest
-#      with_items:
-#        - wireguard
-#        - resolvconf
-#        - iptables-persistent
-
     - name: Configure kernel parameters
       become: true
       blockinfile:
