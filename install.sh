@@ -131,11 +131,11 @@ cat <<EOF > vpn.yml
           enable: wg0
           isolate: wg0
         volumes:
-          - /etc/wireguard:/etc/wireguard
+          - /opt/wgdata:/etc/wireguard
           - /opt/wgdata:/data
         ports:
           - "10086:10086"
-          - "51820:51820/udp"
+          - "17968:51820/udp"
         capabilities:
           - NET_ADMIN
 
