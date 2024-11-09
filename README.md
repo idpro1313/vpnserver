@@ -17,5 +17,7 @@
         sudo docker start portainer
 
 2. Панель управления Wireguard будет доступна по адресу `http://your_server_addr:10086/`
-
+   
+      #### admin : admin
+   
     В Панели управления в разделе "Settings" - "Peers Settings" изменить адрес "Peer Remote Endpoint" на IP адрес вашего сервера.
