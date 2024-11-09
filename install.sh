@@ -133,7 +133,7 @@ cat <<EOF > vpn.yml
           isolate: wg0
         volumes:
           - /etc/wireguard:/etc/wireguard
-          - data:/data
+          - /opt/wgdata:/data
         ports:
           - "10086:10086"
           - "51820:51820/udp"
