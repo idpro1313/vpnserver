@@ -135,7 +135,7 @@ cat <<EOF > vpn.yml
           - /opt/wgdata:/data
         ports:
           - "10086:10086"
-          - "51820:51820/udp"
+          - "17968:17968/udp"
         capabilities:
           - NET_ADMIN
 
