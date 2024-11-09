@@ -3,8 +3,7 @@ echo " "
 echo "Update and upgrade OS"
 echo " "
 
-sudo apt update
-sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 echo " "
 echo "Install Ansible"
