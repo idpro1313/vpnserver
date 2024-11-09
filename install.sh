@@ -99,15 +99,15 @@ cat <<EOF > vpn.yml
 - name: Install Wireguard and necessary components
   hosts: "localhost"
   tasks:
-    - name: Install Wireguard and necessary packages
-      become: true
-      apt:
-        name: "{{ item }}"
-        state: latest
-      with_items:
-        - wireguard
+#    - name: Install Wireguard and necessary packages
+#      become: true
+#      apt:
+#        name: "{{ item }}"
+#        state: latest
+#      with_items:
+#        - wireguard
 #        - resolvconf
-        - iptables-persistent
+#        - iptables-persistent
 
     - name: Configure kernel parameters
       become: true
