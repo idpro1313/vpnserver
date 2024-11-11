@@ -99,6 +99,9 @@ cat <<EOF > vpn.yml
           net.ipv4.conf.all.rp_filter=0
           net.ipv4.ip_forward=1
           net.ipv4.conf.all.forwarding=1
+          net.ipv6.conf.all.disable_ipv6=1
+          net.ipv6.conf.default.disable_ipv6=1
+          net.ipv6.conf.lo.disable_ipv6=1
       notify: Reload sysctl
 
     - name: Create the WireGuard Dashboard container
